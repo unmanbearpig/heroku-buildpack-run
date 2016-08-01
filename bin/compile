@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# This buildpack can be used for executing custom commands on the build dyno.
+# All the Bash commands in buildpack-run.sh will be run during the execution of
+# the 'compile' script. The working dir for the script will be the root app dir.
+#
+# ---
+#
+# The 'compile' script is executed by the slug compiler with three arguments:
+#   $1: build_dir, location of your app directory on the build dyno
+#   $2: cache_dir, directory on the build dyno that persists between builds
+#   $3: env_dir, directory holding all the app's config vars as files
+#
+# More information here: https://devcenter.heroku.com/articles/buildpack-api
+#
+# TheKoon <damien@yka.ch>
+#------------------------------------------------------------------------------#
+
+STACK=${STACK:-cedar}
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=${3:-}
+BUILDPACK_DIR=$(cd $(dirname $0); cd ..; pwd)
+
+# Add Common Tools
+source $BUILDPACK_DIR/bin/tools/common.sh
+
+# Export env
+export_env_dir "$ENV_DIR"
+
+BUILDPACK_RUN_SCRIPT="buildpack-run.sh"
+if [[ -n $BUILDPACK_RUN ]]; then
+  BUILDPACK_RUN_SCRIPT=$BUILDPACK_RUN
+fi
+
+if [[ -f "$BUILD_DIR/$BUILDPACK_RUN_SCRIPT" ]] ; then
+  status "$BUILDPACK_RUN_SCRIPT found..."
+  source "$BUILD_DIR/$BUILDPACK_RUN_SCRIPT"
+else
+  status "$BUILDPACK_RUN_SCRIPT not found..."
+fi

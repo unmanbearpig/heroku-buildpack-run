@@ -61,7 +61,7 @@ heroku buildpacks
 
 
 Custom script name
------
+------------------
 
 The default name of the source script is `buildpack-run.sh`, but you can set whatever you want:
 

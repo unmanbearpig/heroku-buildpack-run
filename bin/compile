@@ -33,9 +33,11 @@ if [[ -n $BUILDPACK_RUN ]]; then
   BUILDPACK_RUN_SCRIPT=$BUILDPACK_RUN
 fi
 
-if [[ -f "$BUILD_DIR/$BUILDPACK_RUN_SCRIPT" ]] ; then
+cd $BUILD_DIR
+
+if [[ -f "$BUILDPACK_RUN_SCRIPT" ]] ; then
   status "$BUILDPACK_RUN_SCRIPT found..."
-  source "$BUILD_DIR/$BUILDPACK_RUN_SCRIPT"
+  source "$BUILDPACK_RUN_SCRIPT"
 else
   status "$BUILDPACK_RUN_SCRIPT not found..."
 fi

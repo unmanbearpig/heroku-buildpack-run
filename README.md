@@ -32,7 +32,7 @@ Simply do:
 # Create file 'buildpack-run.sh' containing bash commands
 echo 'echo "hello world"' > buildpack-run.sh
 
-heroku buildpacks:set https://github.com/TheKoon/heroku-buildpack-run.git
+heroku buildpacks:set https://github.com/damiencriado/heroku-buildpack-run.git
 ~~~
 
 The buildpack is now set and will be used on the next deploy.
@@ -48,10 +48,10 @@ https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app):
 
 ~~~bash
 heroku buildpacks:add --index 1 heroku/php
-heroku buildpacks:add --index 2 https://github.com/TheKoon/heroku-buildpack-run.git
+heroku buildpacks:add --index 2 https://github.com/damiencriado/heroku-buildpack-run.git
 ~~~
 
-![Multiple Buildpacks](http://img4.hostingpics.net/pics/482392Capturedecran20160801a211657.png)
+![Multiple Buildpacks](http://drops.damien.is/Ii3Z+)
 
 You can always check which buildpacks you have currently added to your app with:
 

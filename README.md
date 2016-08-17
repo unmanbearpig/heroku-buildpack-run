@@ -51,7 +51,7 @@ heroku buildpacks:add --index 1 heroku/php
 heroku buildpacks:add --index 2 https://github.com/damiencriado/heroku-buildpack-run.git
 ~~~
 
-![Multiple Buildpacks](http://drops.damien.is/Ii3Z+)
+![Multiple Buildpacks](http://drops.damien.is/1a5xg+)
 
 You can always check which buildpacks you have currently added to your app with:
 

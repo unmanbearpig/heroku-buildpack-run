@@ -1,7 +1,4 @@
-Heroku Buildpack: Run!
-=====================
-
-<img src="http://img4.hostingpics.net/pics/899520bprun.png" width="600">
+<p align="center"><img src="https://www.dropbox.com/s/iwxlik25ufz77qf/heroku-buildpack-run.png?raw=1" width="600"></p>
 
 Run custom commands during the build process.
 
